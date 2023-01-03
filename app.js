@@ -26,6 +26,27 @@ spotifyApi
   );
 // Our routes go here:
 
+/* GET home page. */
+app.get("/", function (req, res, next) {
+  res.render("index", { title: "Express" });
+});
+
+/*Search artist*/
+app.get("/artist-search", (req, res, next) => {
+  const { artist } = req.query;
+  spotifyApi
+    .searchArtists(artist)
+    //.then((data) => res.json(data.body.artists.items))
+    .then((dataFromAPI) => {
+      const artistArr = dataFromAPI.body.artists.items;
+      console.log(artistArr[0]);
+      res.render("artist-search-results", { artistArr });
+    })
+    .catch((err) =>
+      console.log("The error while searching artists occurred: ", err)
+    );
+});
+
 app.listen(3000, () =>
   console.log("My Spotify project running on port 3000 🎧 🥁 🎸 🔊")
 );
