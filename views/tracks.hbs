@@ -1,0 +1,9 @@
+<h1>tracks</h1>
+<div id="tracks">
+  {{#each trackArr}}
+    <h3>{{name}}</h3>
+    {{#if preview_url}}
+      <audio controls src="{{preview_url}}"></audio>
+    {{/if}}
+  {{/each}}
+</div>

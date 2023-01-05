@@ -54,9 +54,22 @@ app.get("/albums/:artistId", (req, res, next) => {
     //.then((dataFromAPI) => res.json(dataFromAPI.body.items));
     .then((dataFromAPI) => {
       const albumsArr = dataFromAPI.body.items;
-      console.log(albumsArr[0]);
+      //console.log("my selection", albumsArr[0]);
       res.render("albums", { albumsArr });
-    });
+    })
+    .catch((err) =>
+      console.log("The error while searching albums occurred: ", err)
+    );
+});
+
+app.get("/tracks/:albumId", (req, res, next) => {
+  const { albumId } = req.params;
+  //console.log("en el req", albumId);
+  spotifyApi.getAlbumTracks(albumId).then((dataFromAPI) => {
+    const trackArr = dataFromAPI.body.items;
+    console.log(trackArr[0]);
+    res.render("tracks", { trackArr });
+  });
 });
 
 app.listen(3000, () =>
