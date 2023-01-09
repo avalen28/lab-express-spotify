@@ -1,7 +1,10 @@
+* {
+  box-sizing: border-box;
+}
 body {
   align-items: center;
 }
-#container {
+#container-home {
   background-image: url(/images/spotify-background.jpeg);
   display: flex;
   flex-direction: column;
@@ -43,4 +46,46 @@ body {
   border: none;
   font-weight: bolder;
   color: antiquewhite;
+}
+#card-container {
+  display: flex;
+  justify-content: center;
+}
+#card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 70%;
+}
+
+#card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+  margin: 10px;
+}
+#name-card {
+  font-size: 18px;
+}
+#name-and-link {
+  background-color: rgb(168, 161, 161);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+#img-card {
+  width: 100%;
+}
+#card-link {
+  text-decoration: none;
+  color: whitesmoke;
+  background-color: rgb(243, 63, 63);
+  border-radius: 3px;
+  padding: 5px;
+  margin-top: 5px;
 }
