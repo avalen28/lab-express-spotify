@@ -1,9 +1,18 @@
-<h1>tracks</h1>
-<div id="tracks">
-  {{#each trackArr}}
-    <h3>{{name}}</h3>
-    {{#if preview_url}}
-      <audio controls src="{{preview_url}}"></audio>
-    {{/if}}
-  {{/each}}
+<div id="card-tracks">
+
+  <div id="tracks-header">
+    <h2>Title</h2>
+    <h2>Listen</h2>
+  </div>
+  <div id="tracks">
+    {{#each trackArr}}
+      <div id="name-and-song">
+        <h3 id="name-song">{{name}}</h3>
+        <!--{{#if preview_url}}-->
+          <audio controls src="{{preview_url}}" id="controls"></audio>
+        <!--{{/if}}-->
+      </div>
+    {{/each}}
+  </div>
+
 </div>
